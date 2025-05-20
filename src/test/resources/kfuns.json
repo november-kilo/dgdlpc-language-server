@@ -1,0 +1,22 @@
+{
+  "kfuns": {
+    "acos": {
+      "name": "acos",
+      "description": "compute arc cosine",
+      "returnType": "float",
+      "synopsis": "float acos(float x)",
+      "parameters": [
+        {
+          "label": "x",
+          "documentation": "float parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Return the arc cosine of the argument.",
+      "seeAlso": [
+        "asin",
+        "atan"
+      ]
+    }
+  }
+}

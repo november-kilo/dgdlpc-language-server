@@ -1,0 +1,2082 @@
+{
+  "kfuns": {
+    "acos": {
+      "name": "acos",
+      "description": "compute arc cosine",
+      "returnType": "float",
+      "synopsis": "float acos(float x)",
+      "parameters": [
+        {
+          "label": "x",
+          "documentation": "float parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Return the arc cosine of the argument.",
+      "seeAlso": [
+        "asin",
+        "atan"
+      ]
+    },
+    "allocate": {
+      "name": "allocate",
+      "description": "allocate an array",
+      "returnType": "void",
+      "synopsis": "mixed *allocate(int size)",
+      "parameters": [
+        {
+          "label": "size",
+          "documentation": "int parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Allocate an array with size elements.  All elements are initialized\n\tto nil.  The new array is returned.",
+      "seeAlso": [
+        "allocate_int",
+        "allocate_float",
+        "sizeof"
+      ]
+    },
+    "allocate_float": {
+      "name": "allocate_float",
+      "description": "allocate an array of floats",
+      "returnType": "void",
+      "synopsis": "float *allocate_float(int size)",
+      "parameters": [
+        {
+          "label": "size",
+          "documentation": "int parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Allocate an array with size elements.  All elements are initialized\n\tto 0.0.  The new array is returned.",
+      "seeAlso": [
+        "allocate",
+        "allocate_int",
+        "sizeof"
+      ]
+    },
+    "allocate_int": {
+      "name": "allocate_int",
+      "description": "allocate an array of integers",
+      "returnType": "void",
+      "synopsis": "int *allocate_int(int size)",
+      "parameters": [
+        {
+          "label": "size",
+          "documentation": "int parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Allocate an array with size elements.  All elements are initialized\n\tto 0.  The new array is returned.",
+      "seeAlso": [
+        "allocate",
+        "allocate_float",
+        "sizeof"
+      ]
+    },
+    "asin": {
+      "name": "asin",
+      "description": "compute arc sine",
+      "returnType": "float",
+      "synopsis": "float asin(float x)",
+      "parameters": [
+        {
+          "label": "x",
+          "documentation": "float parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Return the arc sine of the argument.",
+      "seeAlso": [
+        "acos",
+        "atan"
+      ]
+    },
+    "asn_add": {
+      "name": "asn_add",
+      "description": "add two arbitrary size numbers",
+      "returnType": "string",
+      "synopsis": "string asn_add(string a, string b, string m)",
+      "parameters": [
+        {
+          "label": "a",
+          "documentation": "string parameter",
+          "optional": false
+        },
+        {
+          "label": "b",
+          "documentation": "string parameter",
+          "optional": false
+        },
+        {
+          "label": "m",
+          "documentation": "string parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Compute the sum of a and b modulo m.  The modulus must be larger than\n\tzero.\n\tArbitrary size numbers are encoded as strings, most significant byte\n\tfirst.  The most significant bit in the first byte, when set, indicates\n\tthat the number is negative and encoded in two's complement.",
+      "seeAlso": [
+        "asn_div",
+        "asn_mod",
+        "asn_mult",
+        "asn_pow",
+        "asn_sub"
+      ]
+    },
+    "asn_and": {
+      "name": "asn_and",
+      "description": "logical and of two arbitrary size numbers",
+      "returnType": "string",
+      "synopsis": "string asn_and(string a, string b)",
+      "parameters": [
+        {
+          "label": "a",
+          "documentation": "string parameter",
+          "optional": false
+        },
+        {
+          "label": "b",
+          "documentation": "string parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Compute the bit-wise logical and of a and b (sign extended).  The\n\tresult will be as long as the longest argument.",
+      "seeAlso": [
+        "asn_lshift",
+        "asn_or",
+        "asn_rshift",
+        "asn_xor"
+      ]
+    },
+    "asn_cmp": {
+      "name": "asn_cmp",
+      "description": "compare two arbitrary size numbers",
+      "returnType": "int",
+      "synopsis": "int asn_cmp(string a, string b)",
+      "parameters": [
+        {
+          "label": "a",
+          "documentation": "string parameter",
+          "optional": false
+        },
+        {
+          "label": "b",
+          "documentation": "string parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Compare a and b, returning -1 if a is smaller than b, 1 if a is larger\n\tthan b, or 0 if a is equal to b.\n\tArbitrary size numbers are encoded as strings, most significant byte\n\tfirst.  The most significant bit in the first byte, when set, indicates\n\tthat the number is negative and encoded in two's complement.",
+      "seeAlso": []
+    },
+    "asn_div": {
+      "name": "asn_div",
+      "description": "divide one arbitrary size number by another",
+      "returnType": "string",
+      "synopsis": "string asn_div(string a, string b, string m)",
+      "parameters": [
+        {
+          "label": "a",
+          "documentation": "string parameter",
+          "optional": false
+        },
+        {
+          "label": "b",
+          "documentation": "string parameter",
+          "optional": false
+        },
+        {
+          "label": "m",
+          "documentation": "string parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Compute a divided by b modulo m.  The modulus must be larger than zero.\n\tArbitrary size numbers are encoded as strings, most significant byte\n\tfirst.  The most significant bit in the first byte, when set, indicates\n\tthat the number is negative and encoded in two's complement.",
+      "seeAlso": [
+        "asn_add",
+        "asn_mod",
+        "asn_mult",
+        "asn_pow",
+        "asn_sub"
+      ]
+    },
+    "asn_lshift": {
+      "name": "asn_lshift",
+      "description": "left shift an arbitrary size number",
+      "returnType": "string",
+      "synopsis": "string asn_lshift(string a, int shift, string m)",
+      "parameters": [
+        {
+          "label": "a",
+          "documentation": "string parameter",
+          "optional": false
+        },
+        {
+          "label": "shift",
+          "documentation": "int parameter",
+          "optional": false
+        },
+        {
+          "label": "m",
+          "documentation": "string parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Left shift a by the given amount, and return the result modulo m.\n\tArbitrary size numbers are encoded as strings, most significant byte\n\tfirst.  The most significant bit in the first byte, when set, indicates\n\tthat the number is negative and encoded in two's complement.",
+      "seeAlso": [
+        "asn_and",
+        "asn_or",
+        "asn_rshift",
+        "asn_xor"
+      ]
+    },
+    "asn_mod": {
+      "name": "asn_mod",
+      "description": "one arbitrary size number modulo another",
+      "returnType": "string",
+      "synopsis": "string asn_mod(string a, string m)",
+      "parameters": [
+        {
+          "label": "a",
+          "documentation": "string parameter",
+          "optional": false
+        },
+        {
+          "label": "m",
+          "documentation": "string parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Compute a modulo m.  The modulus must be larger than zero.\n\tArbitrary size numbers are encoded as strings, most significant byte\n\tfirst.  The most significant bit in the first byte, when set, indicates\n\tthat the number is negative and encoded in two's complement.",
+      "seeAlso": [
+        "asn_add",
+        "asn_div",
+        "asn_mult",
+        "asn_pow",
+        "asn_sub"
+      ]
+    },
+    "asn_modinv": {
+      "name": "asn_modinv",
+      "description": "modular inverse",
+      "returnType": "string",
+      "synopsis": "string asn_modinv(string a, string m)",
+      "parameters": [
+        {
+          "label": "a",
+          "documentation": "string parameter",
+          "optional": false
+        },
+        {
+          "label": "m",
+          "documentation": "string parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Compute the inverse of a modulo m.  The modulus must be larger than\n\tzero.  Arbitrary size numbers are encoded as strings, most significant\n\tbyte first.  The most significant bit in the first byte, when set,\n\tindicates that the number is negative and encoded in two's complement.",
+      "seeAlso": [
+        "asn_mult"
+      ]
+    },
+    "asn_mult": {
+      "name": "asn_mult",
+      "description": "multiply two arbitrary size numbers",
+      "returnType": "string",
+      "synopsis": "string asn_mult(string a, string b, string m)",
+      "parameters": [
+        {
+          "label": "a",
+          "documentation": "string parameter",
+          "optional": false
+        },
+        {
+          "label": "b",
+          "documentation": "string parameter",
+          "optional": false
+        },
+        {
+          "label": "m",
+          "documentation": "string parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Compute a multiplied by b modulo m.  The modulus must be larger than\n\tzero.\n\tArbitrary size numbers are encoded as strings, most significant byte\n\tfirst.  The most significant bit in the first byte, when set, indicates\n\tthat the number is negative and encoded in two's complement.",
+      "seeAlso": [
+        "asn_add",
+        "asn_div",
+        "asn_mod",
+        "asn_modinv",
+        "asn_pow",
+        "asn_sub"
+      ]
+    },
+    "asn_or": {
+      "name": "asn_or",
+      "description": "logical or of two arbitrary size numbers",
+      "returnType": "string",
+      "synopsis": "string asn_or(string a, string b)",
+      "parameters": [
+        {
+          "label": "a",
+          "documentation": "string parameter",
+          "optional": false
+        },
+        {
+          "label": "b",
+          "documentation": "string parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Compute the bit-wise logical or of a and b (sign extended).  The\n\tresult will be as long as the longest argument.",
+      "seeAlso": [
+        "asn_and",
+        "asn_lshift",
+        "asn_rshift",
+        "asn_xor"
+      ]
+    },
+    "asn_pow": {
+      "name": "asn_pow",
+      "description": "raise one arbitrary size number to the power of another",
+      "returnType": "string",
+      "synopsis": "string asn_pow(string a, string b, string m)",
+      "parameters": [
+        {
+          "label": "a",
+          "documentation": "string parameter",
+          "optional": false
+        },
+        {
+          "label": "b",
+          "documentation": "string parameter",
+          "optional": false
+        },
+        {
+          "label": "m",
+          "documentation": "string parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Compute a raised to the power b modulo m.  The modulus must be larger\n\tthan zero.  Negative powers can only be used if an inverse modulo m\n\texists.\n\tArbitrary size numbers are encoded as strings, most significant byte\n\tfirst.  The most significant bit in the first byte, when set, indicates\n\tthat the number is negative and encoded in two's complement.",
+      "seeAlso": [
+        "asn_add",
+        "asn_div",
+        "asn_mod",
+        "asn_mult",
+        "asn_sub"
+      ]
+    },
+    "asn_rshift": {
+      "name": "asn_rshift",
+      "description": "right shift an arbitrary size number",
+      "returnType": "string",
+      "synopsis": "string asn_rshift(string a, int shift)",
+      "parameters": [
+        {
+          "label": "a",
+          "documentation": "string parameter",
+          "optional": false
+        },
+        {
+          "label": "shift",
+          "documentation": "int parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Right shift a by the given amount.",
+      "seeAlso": [
+        "asn_and",
+        "asn_lshift",
+        "asn_or",
+        "asn_xor"
+      ]
+    },
+    "asn_sub": {
+      "name": "asn_sub",
+      "description": "subtract one arbitrary size number from another",
+      "returnType": "string",
+      "synopsis": "string asn_sub(string a, string b, string m)",
+      "parameters": [
+        {
+          "label": "a",
+          "documentation": "string parameter",
+          "optional": false
+        },
+        {
+          "label": "b",
+          "documentation": "string parameter",
+          "optional": false
+        },
+        {
+          "label": "m",
+          "documentation": "string parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Compute a minus b modulo m.  The modulus must be larger than zero.\n\tArbitrary size numbers are encoded as strings, most significant byte\n\tfirst.  The most significant bit in the first byte, when set, indicates\n\tthat the number is negative and encoded in two's complement.",
+      "seeAlso": [
+        "asn_add",
+        "asn_div",
+        "asn_mod",
+        "asn_mult",
+        "asn_pow"
+      ]
+    },
+    "asn_xor": {
+      "name": "asn_xor",
+      "description": "logical xor of two arbitrary size numbers",
+      "returnType": "string",
+      "synopsis": "string asn_xor(string a, string b)",
+      "parameters": [
+        {
+          "label": "a",
+          "documentation": "string parameter",
+          "optional": false
+        },
+        {
+          "label": "b",
+          "documentation": "string parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Compute the bit-wise logical xor of a and b (sign extended).  The\n\tresult will be as long as the longest argument.",
+      "seeAlso": [
+        "asn_and",
+        "asn_lshift",
+        "asn_or",
+        "asn_rshift"
+      ]
+    },
+    "atan": {
+      "name": "atan",
+      "description": "compute arc tangent",
+      "returnType": "float",
+      "synopsis": "float atan(float x)",
+      "parameters": [
+        {
+          "label": "x",
+          "documentation": "float parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Return the arc tangent of the argument.",
+      "seeAlso": [
+        "acos",
+        "asin",
+        "atan2"
+      ]
+    },
+    "atan2": {
+      "name": "atan2",
+      "description": "compute arc tangent of two variables",
+      "returnType": "float",
+      "synopsis": "float atan2(float y, float x)",
+      "parameters": [
+        {
+          "label": "y",
+          "documentation": "float parameter",
+          "optional": false
+        },
+        {
+          "label": "x",
+          "documentation": "float parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Return the arc tangent of y/x, using the signs of the arguments to\n\tdetermine the quadrant of the result.",
+      "seeAlso": [
+        "atan"
+      ]
+    },
+    "block_input": {
+      "name": "block_input",
+      "description": "block input on a connection",
+      "returnType": "void",
+      "synopsis": "void block_input(int flag)",
+      "parameters": [
+        {
+          "label": "flag",
+          "documentation": "int parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Block or unblock input from the user associated with the current\n\tobject, depending on whether the argument is non-zero or zero,\n\trespectively.",
+      "seeAlso": []
+    },
+    "call_other": {
+      "name": "call_other",
+      "description": "call a function in an object",
+      "returnType": "mixed",
+      "synopsis": "mixed call_other(mixed obj, string function, mixed args...)",
+      "parameters": [
+        {
+          "label": "obj",
+          "documentation": "mixed parameter",
+          "optional": false
+        },
+        {
+          "label": "function",
+          "documentation": "string parameter",
+          "optional": false
+        },
+        {
+          "label": "args",
+          "documentation": "mixed parameter",
+          "optional": true
+        }
+      ],
+      "documentation": "Call a function in an object.  The first argument must be either an\n\tobject or a string.  If it is a string, call_object() will be called\n\tin the driver object to get the corresponding object.\n\tOnly non-private functions can be called with call_other().  If the\n\tfunction is static, the object in which the function is called must\n\tbe the same as the object from which the function is called, or the\n\tcall will fail.\n\tAny additional arguments to call_other() will be passed on to the\n\tcalled function.\n\tIn LPC, obj->func(arg1, arg2, argn) can be used as a shorthand for\n\tcall_other(obj, \"func\", arg1, arg2, argn).",
+      "seeAlso": [
+        "call_touch",
+        "function_object"
+      ]
+    },
+    "call_out": {
+      "name": "call_out",
+      "description": "call function with delay",
+      "returnType": "int",
+      "synopsis": "int call_out(string function, mixed delay, mixed args...)",
+      "parameters": [
+        {
+          "label": "function",
+          "documentation": "string parameter",
+          "optional": false
+        },
+        {
+          "label": "delay",
+          "documentation": "mixed parameter",
+          "optional": false
+        },
+        {
+          "label": "args",
+          "documentation": "mixed parameter",
+          "optional": true
+        }
+      ],
+      "documentation": "Call a function in the current object with a delay.  The function to\n\tbe called must not be private.  The delay is specified in seconds.\n\tThe minimum delay is 0 seconds, for a function that is to be called\n\tas soon as possible after termination of the current task.\n\tIf the delay is an integer, the function will be called after\n\tapproximately the specified number of seconds.  Otherwise, the delay\n\tmust be a floating point number, and the function will be called with a\n\tmillisecond resolution.\n\tThe returned value is the callout handle, an integer > 0 which must be\n\tused if the callout is to be removed.",
+      "seeAlso": [
+        "remove_call_out"
+      ]
+    },
+    "call_touch": {
+      "name": "call_touch",
+      "description": "prepare to report when the object is next touched",
+      "returnType": "int",
+      "synopsis": "int call_touch(object obj)",
+      "parameters": [
+        {
+          "label": "obj",
+          "documentation": "object parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Just before the next call to the object, call the function \"touch\" in\n\tthe driver object, with the object and the function to be called as\n\targuments.  If the object did not yet have its creator function called,\n\tcall_touch() fails and return 0; otherwise, it succeeds and returns 1.",
+      "seeAlso": [
+        "call_other"
+      ]
+    },
+    "call_trace": {
+      "name": "call_trace",
+      "description": "return the function call trace",
+      "returnType": "void",
+      "synopsis": "mixed **call_trace()",
+      "parameters": [],
+      "documentation": "Return the function call trace as an array.  The elements are of\n\tthe following format:\n\n\t    ({ objname, progname, function, line, extern, arg1, ..., argn })\n\n\tThe line number is 0 if the function is in a compiled object.\n\tExtern is 1 if the function was called with call_other(), and 0\n\totherwise.\n\tThe offsets in the array are named in the include file <trace.h>.\n\tThe last element of the returned array is the trace of the\n\tcurrent function.",
+      "seeAlso": [
+        "previous_object",
+        "previous_program"
+      ]
+    },
+    "ceil": {
+      "name": "ceil",
+      "description": "round a float towards infinity",
+      "returnType": "float",
+      "synopsis": "float ceil(float x)",
+      "parameters": [
+        {
+          "label": "x",
+          "documentation": "float parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Round the argument towards positive infinity.",
+      "seeAlso": [
+        "floor",
+        "fmod"
+      ]
+    },
+    "clone_object": {
+      "name": "clone_object",
+      "description": "clone an object",
+      "returnType": "object",
+      "synopsis": "object clone_object(object master)",
+      "parameters": [
+        {
+          "label": "master",
+          "documentation": "object parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Create a clone of the specified object with an unique name of the form\n\t\"object_name#1234\".  The cloned object must not itself be a clone.  The\n\tnew object is returned.  The creator function will be called in the\n\tcloned object immediately.",
+      "seeAlso": [
+        "compile_object",
+        "destruct_object",
+        "new_object"
+      ]
+    },
+    "compile_object": {
+      "name": "compile_object",
+      "description": "compile an object",
+      "returnType": "object",
+      "synopsis": "object compile_object(string file, string source...)",
+      "parameters": [
+        {
+          "label": "file",
+          "documentation": "string parameter",
+          "optional": false
+        },
+        {
+          "label": "source",
+          "documentation": "string parameter",
+          "optional": true
+        }
+      ],
+      "documentation": "Compile an object from a LPC file, specified by the first argument with\n\t\".c\" appended.  If the optional source argument are supplied, the object\n\tis compiled from the concatenaton of those strings, instead.  The\n\treturned object will have the file string as name.\n\tIf the object to be compiled already exists and is not inherited by\n\tany other object, it and all of its clones will be upgraded to the\n\tnew version.  Variables will be preserved only if they also exist in\n\tthe new version and have the same type; new variables will be\n\tinitialized to 0 or nil.  The actual upgrading is done immediately upon\n\tcompletion of the current task.",
+      "seeAlso": [
+        "clone_object",
+        "destruct_object",
+        "new_object",
+        "object_name"
+      ]
+    },
+    "connect": {
+      "name": "connect",
+      "description": "establish an outbound connection",
+      "returnType": "void",
+      "synopsis": "void connect(string host, int port)",
+      "parameters": [
+        {
+          "label": "host",
+          "documentation": "string parameter",
+          "optional": false
+        },
+        {
+          "label": "port",
+          "documentation": "int parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Initiate a connection to the given host and port.  Once established,\n\tthe current object will become a user object.  If a connection\n\tcannot be established, unconnected(errcode) will be called in the\n\tcurrent object, for which the argument will be one of the following:\n\n\t    0\tunspecified failure\n\t    1\tconnection refused\n\t    2\thost unreachable\n\t    3\tnetwork unreachable\n\t    4\tconnection timed out",
+      "seeAlso": [
+        "connect_datagram",
+        "query_ip_name",
+        "query_ip_number",
+        "send_close",
+        "send_message",
+        "this_user",
+        "users"
+      ]
+    },
+    "connect_datagram": {
+      "name": "connect_datagram",
+      "description": "establish an outbound datagram connection",
+      "returnType": "void",
+      "synopsis": "void connect_datagram(int datagram_port, string host, int port)",
+      "parameters": [
+        {
+          "label": "datagram_port",
+          "documentation": "int parameter",
+          "optional": false
+        },
+        {
+          "label": "host",
+          "documentation": "string parameter",
+          "optional": false
+        },
+        {
+          "label": "port",
+          "documentation": "int parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Initiate a connection from the datagram port to the given host and\n\tport.  Once established, the current object will become a user object.\n\tNote that a datagram connection can be established without sending or\n\treceiving any data to and from the remote host.  If a connection cannot\n\tbe established, unconnected(errcode) will be called in the current\n\tobject, for which the argument will be one of the following:\n\n\t    0\tunspecified failure\n\t    3\tdatagram_port and host are on different networks\n\t    5\tdatagram connection already exists",
+      "seeAlso": [
+        "connect",
+        "query_ip_name",
+        "query_ip_number",
+        "send_datagram",
+        "this_user",
+        "users"
+      ]
+    },
+    "cos": {
+      "name": "cos",
+      "description": "compute cosine",
+      "returnType": "float",
+      "synopsis": "float cos(float x)",
+      "parameters": [
+        {
+          "label": "x",
+          "documentation": "float parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Return the cosine of the argument.",
+      "seeAlso": [
+        "sin",
+        "tan"
+      ]
+    },
+    "cosh": {
+      "name": "cosh",
+      "description": "compute hyperbolic cosine",
+      "returnType": "float",
+      "synopsis": "float cosh(float x)",
+      "parameters": [
+        {
+          "label": "x",
+          "documentation": "float parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Return the hyperbolic cosine of the argument.",
+      "seeAlso": [
+        "sinh",
+        "tanh"
+      ]
+    },
+    "crypt": {
+      "name": "crypt",
+      "description": "hash a password string",
+      "returnType": "string",
+      "synopsis": "string crypt(string passwd, varargs string salt)",
+      "parameters": [
+        {
+          "label": "passwd",
+          "documentation": "string parameter",
+          "optional": false
+        },
+        {
+          "label": "salt",
+          "documentation": "varargs string parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "The same as hash_string(\"crypt\", passwd, salt)\n\n\tThis kfun is retained for backward compatibility.",
+      "seeAlso": [
+        "hash_string"
+      ]
+    },
+    "ctime": {
+      "name": "ctime",
+      "description": "convert a time integer into a string",
+      "returnType": "string",
+      "synopsis": "string ctime(int time)",
+      "parameters": [
+        {
+          "label": "time",
+          "documentation": "int parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Convert the specified time, which is an integer such as is returned\n\tby the kfun time(), into a string of the form\n\t\"Tue Aug  3 14:40:18 1993\".",
+      "seeAlso": [
+        "millitime",
+        "time"
+      ]
+    },
+    "datagram_challenge": {
+      "name": "datagram_challenge",
+      "description": "set the datagram challenge",
+      "returnType": "void",
+      "synopsis": "void datagram_challenge(string challenge)",
+      "parameters": [
+        {
+          "label": "challenge",
+          "documentation": "string parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Set the datagram challenge for the current binary user object.  The\n\tclient must send this challenge in order to open the datagram channel,\n\tafter which open_datagram() will be called in the object.  All\n\toutstanding challenges must be unique.",
+      "seeAlso": [
+        "query_ip_name",
+        "query_ip_number",
+        "send_datagram",
+        "this_user",
+        "users"
+      ]
+    },
+    "decrypt": {
+      "name": "decrypt",
+      "description": "decrypt a string",
+      "returnType": "mixed",
+      "synopsis": "mixed decrypt(string cipher, string key, varargs string mesg)",
+      "parameters": [
+        {
+          "label": "cipher",
+          "documentation": "string parameter",
+          "optional": false
+        },
+        {
+          "label": "key",
+          "documentation": "string parameter",
+          "optional": false
+        },
+        {
+          "label": "mesg",
+          "documentation": "varargs string parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Cipher \"DES key\" prepares a key for decryption, and \"DES\" decrypts a\n\tmessage with a prepared key.\n\tDES is the only built-in cipher.  Other ciphers may be added through\n\textension modules.",
+      "seeAlso": [
+        "encrypt"
+      ]
+    },
+    "destruct_object": {
+      "name": "destruct_object",
+      "description": "destruct an object",
+      "returnType": "void",
+      "synopsis": "void destruct_object(object obj)",
+      "parameters": [
+        {
+          "label": "obj",
+          "documentation": "object parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Destruct the object given as the argument.  Any value holding the object\n\twill immediately change into nil, and the object will cease to exist.\n\tIf an object destructs itself, it will cease to exist as soon as\n\texecution leaves it.  If the last reference to a master object is\n\tremoved (including cloned objects and inheriting objects), the\n\tfunction remove_program(objname) will be called in the driver object.",
+      "seeAlso": [
+        "clone_object",
+        "compile_object"
+      ]
+    },
+    "dump_state": {
+      "name": "dump_state",
+      "description": "create a snapshot",
+      "returnType": "void",
+      "synopsis": "void dump_state(vararg int incremental)",
+      "parameters": [
+        {
+          "label": "incremental",
+          "documentation": "vararg int parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Create a snapshot of the current state of the system.  The actual\n\tsnapshot is not created until after the current task has finished.\n\tIf the argument is non-zero, the snapshot will be incremental.",
+      "seeAlso": [
+        "swapout"
+      ]
+    },
+    "editor": {
+      "name": "editor",
+      "description": "handle an editor command",
+      "returnType": "string",
+      "synopsis": "string editor(varargs string command)",
+      "parameters": [
+        {
+          "label": "command",
+          "documentation": "varargs string parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Execute an editor command for the current object.  If the editor\n\tcommand is the first for this object, an editor instance will be\n\tcreated for it.  The editor instance will remain active until an\n\teditor command is specified that terminates it, or until the object\n\tis destructed.  Editor output will be returned as a string.  The\n\teditor status of an object can be queried with the kfun query_editor().\n\tFile paths for reading and writing will be translated by path_read()\n\tand path_write(), respectively, in the driver object.",
+      "seeAlso": [
+        "read_file",
+        "write_file"
+      ]
+    },
+    "encrypt": {
+      "name": "encrypt",
+      "description": "encrypt a string",
+      "returnType": "mixed",
+      "synopsis": "mixed encrypt(string cipher, string key, varargs string mesg)",
+      "parameters": [
+        {
+          "label": "cipher",
+          "documentation": "string parameter",
+          "optional": false
+        },
+        {
+          "label": "key",
+          "documentation": "string parameter",
+          "optional": false
+        },
+        {
+          "label": "mesg",
+          "documentation": "varargs string parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Cipher \"DES key\" prepares a key, and \"DES\" encrypts a message with\n\ta prepared key.\n\tDES is the only built-in cipher.  Other ciphers may be added through\n\textension modules.",
+      "seeAlso": [
+        "decrypt"
+      ]
+    },
+    "error": {
+      "name": "error",
+      "description": "cause an error",
+      "returnType": "void",
+      "synopsis": "void error(string errormessage)",
+      "parameters": [
+        {
+          "label": "errormessage",
+          "documentation": "string parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Cause an error, which will stop execution.  If the error is caught,\n\texecution will continue after the catch.",
+      "seeAlso": []
+    },
+    "exp": {
+      "name": "exp",
+      "description": "compute exponential",
+      "returnType": "float",
+      "synopsis": "float exp(float x)",
+      "parameters": [
+        {
+          "label": "x",
+          "documentation": "float parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Return the exponential value of the given argument.",
+      "seeAlso": [
+        "log",
+        "log10",
+        "pow"
+      ]
+    },
+    "explode": {
+      "name": "explode",
+      "description": "explode a string",
+      "returnType": "void",
+      "synopsis": "string *explode(string str, string separator)",
+      "parameters": [
+        {
+          "label": "str",
+          "documentation": "string parameter",
+          "optional": false
+        },
+        {
+          "label": "separator",
+          "documentation": "string parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Return an array of substrings of str, divided by the given separator.\n\tThe separators that str starts and ends with, if any, are not taken\n\tinto account.",
+      "seeAlso": [
+        "implode",
+        "parse_string",
+        "sscanf"
+      ]
+    },
+    "fabs": {
+      "name": "fabs",
+      "description": "return the absolute value of a float",
+      "returnType": "float",
+      "synopsis": "float fabs(float x)",
+      "parameters": [
+        {
+          "label": "x",
+          "documentation": "float parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Return the absolute value of the argument.",
+      "seeAlso": []
+    },
+    "find_object": {
+      "name": "find_object",
+      "description": "find an object",
+      "returnType": "object",
+      "synopsis": "object find_object(string obj)",
+      "parameters": [
+        {
+          "label": "obj",
+          "documentation": "string parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "The string argument is resolved as a file path, and the object with\n\tthe resulting name is searched for.  Either the object, if found, or\n\tnil is returned.",
+      "seeAlso": [
+        "object_name"
+      ]
+    },
+    "floor": {
+      "name": "floor",
+      "description": "round float towards minus infinity",
+      "returnType": "float",
+      "synopsis": "float floor(float x)",
+      "parameters": [
+        {
+          "label": "x",
+          "documentation": "float parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Round the argument towards negative infinity.",
+      "seeAlso": [
+        "ceil",
+        "fmod"
+      ]
+    },
+    "fmod": {
+      "name": "fmod",
+      "description": "floating point modulus",
+      "returnType": "float",
+      "synopsis": "float fmod(float x, float y)",
+      "parameters": [
+        {
+          "label": "x",
+          "documentation": "float parameter",
+          "optional": false
+        },
+        {
+          "label": "y",
+          "documentation": "float parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Return the value f, for which there exists an integer k such that\n\tk * y + f == x, f has the same sign of x, and the absolute value of\n\tf is less than the absolute value of y.",
+      "seeAlso": [
+        "ceil",
+        "floor"
+      ]
+    },
+    "frexp": {
+      "name": "frexp",
+      "description": "split float into fraction and exponent",
+      "returnType": "void",
+      "synopsis": "mixed *frexp(float x)",
+      "parameters": [
+        {
+          "label": "x",
+          "documentation": "float parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "The argument is split into a fraction f and an integer exponent n,\n\tsuch that either f == 0.0, or 0.5 <= | f | < 1.0, and f * 2 ** n == x.\n\t({ f, n }) is returned.  If x == 0.0, both f and n will be zero.",
+      "seeAlso": [
+        "ldexp",
+        "modf"
+      ]
+    },
+    "function_object": {
+      "name": "function_object",
+      "description": "find a function in an object",
+      "returnType": "string",
+      "synopsis": "string function_object(string function, object obj)",
+      "parameters": [
+        {
+          "label": "function",
+          "documentation": "string parameter",
+          "optional": false
+        },
+        {
+          "label": "obj",
+          "documentation": "object parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Find the named function, which must be callable with call_other(),\n\tin an object.  If the function is found, the name of the inherited\n\tobject that defines it is returned; otherwise, nil is returned.",
+      "seeAlso": [
+        "call_other",
+        "instanceof"
+      ]
+    },
+    "get_dir": {
+      "name": "get_dir",
+      "description": "get information about files in a directory",
+      "returnType": "void",
+      "synopsis": "mixed **get_dir(string file)",
+      "parameters": [
+        {
+          "label": "file",
+          "documentation": "string parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Get information about a file or files in a directory.  The return\n\tvalue is of the form\n\n\t    ({ ({ file names }), ({ file sizes }), ({ file mod times }) })\n\n\tIf a file is a directory, the file size will be given as -2.\n\tIf the last path component of the specified file can be interpreted\n\tas a regular expression, all files which match this regular expression\n\tare collected.  Otherwise, only the file itself is taken.  If no files\n\tmatch, or if the file is not present, the return value of get_dir()\n\twill be ({ ({ }), ({ }), ({ }) }).\n\tThe following characters have a special meaning in a regular expression:\n\n\t    ?\t    any single character\n\t    *\t    any (possibly empty) string\n\t    [a-z]   any character in the range a-z\n\t    [^a-z]  any character not in range a-z\n\t    \\c\t    the character c, not interpreted as having a special\n\t\t    meaning\n\n\tThe files will be sorted by file name.\n\tOnly as many files as specified by status()[ST_ARRAYSIZE], with\n\tST_ARRAYSIZE defined in the include file <status.h>, will be collected.",
+      "seeAlso": [
+        "make_dir",
+        "remove_dir"
+      ]
+    },
+    "hash_crc16": {
+      "name": "hash_crc16",
+      "description": "16 bit cyclic redundancy code",
+      "returnType": "int",
+      "synopsis": "int hash_crc16(string str, string extra...)",
+      "parameters": [
+        {
+          "label": "str",
+          "documentation": "string parameter",
+          "optional": false
+        },
+        {
+          "label": "extra",
+          "documentation": "string parameter",
+          "optional": true
+        }
+      ],
+      "documentation": "Compute the 16 bit Cyclic Redundancy Code of the concatenation of all\n\tstring arguments, with polynomial:\n\n\t    X^16 + X^12 + X^5 + 1\n\n\tCRC-16 is considered suitable for strings of up to a total of 4096\n\tcharacters.",
+      "seeAlso": [
+        "hash_crc32",
+        "hash_string"
+      ]
+    },
+    "hash_crc32": {
+      "name": "hash_crc32",
+      "description": "32 bit cyclic redundancy code",
+      "returnType": "int",
+      "synopsis": "int hash_crc32(string str, string extra...)",
+      "parameters": [
+        {
+          "label": "str",
+          "documentation": "string parameter",
+          "optional": false
+        },
+        {
+          "label": "extra",
+          "documentation": "string parameter",
+          "optional": true
+        }
+      ],
+      "documentation": "Compute the 32 bit Cyclic Redundancy Code of the concatenation of all\n\tstring arguments, with polynomial:\n\n\t    x^32 + x^26 + x^23 + x^22 + x^16 + x^12 + x^11 + x^10 + x^8 +\n\t    x^7 + x^5 + x^4 + x^2 + x + 1",
+      "seeAlso": [
+        "hash_crc16",
+        "hash_string"
+      ]
+    },
+    "hash_string": {
+      "name": "hash_string",
+      "description": "hash a string with a given algorithm",
+      "returnType": "string",
+      "synopsis": "string hash_string(string algo, string str, string extra...)",
+      "parameters": [
+        {
+          "label": "algo",
+          "documentation": "string parameter",
+          "optional": false
+        },
+        {
+          "label": "str",
+          "documentation": "string parameter",
+          "optional": false
+        },
+        {
+          "label": "extra",
+          "documentation": "string parameter",
+          "optional": true
+        }
+      ],
+      "documentation": "Hash a string, possibly after concatenation of optional extra\n\targuments, with the given algorithm.  The following hash algorithms are\n\tdefined:\n\n\t\"crypt\" Unix password crypt.  Unless the salt is specified in an\n\t\textra argument, it is randomly chosen.  The result is a\n\t\tstring of 13 characters.\n\t\"MD5\"\tThe MD5 message digest (128 bits).  Extra arguments are\n\t\tconcatenated before the hash is calculated.  The result is\n\t\ta string of 16 characters.\n\t\"SHA1\"\tThe SHA-1 message digest (160 bits).  Extra arguments are\n\t\tconcatenated before the hash is calculated.  The result is\n\t\ta string of 20 characters.",
+      "seeAlso": [
+        "hash_crc16",
+        "hash_crc32"
+      ]
+    },
+    "implode": {
+      "name": "implode",
+      "description": "implode a string",
+      "returnType": "string",
+      "synopsis": "string implode(string *arr, string separator)",
+      "parameters": [
+        {
+          "label": "*arr",
+          "documentation": "string parameter",
+          "optional": false
+        },
+        {
+          "label": "separator",
+          "documentation": "string parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Return a string, consisting of all string elements of the array arr\n\tconcatenated, separated by the string separator.",
+      "seeAlso": [
+        "explode",
+        "parse_string",
+        "sscanf"
+      ]
+    },
+    "instanceof": {
+      "name": "instanceof",
+      "description": "check whether an object is an instance of a type",
+      "returnType": "int",
+      "synopsis": "int instanceof(object obj, string type)",
+      "parameters": [
+        {
+          "label": "obj",
+          "documentation": "object parameter",
+          "optional": false
+        },
+        {
+          "label": "type",
+          "documentation": "string parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Check whether an object is an instance of the given type, which is\n\tfirst processed by object_type() in the driver object.  The return\n\tvalue is -1 if the type is privately inherited, 1 if the type is\n\tnormally inherited, or 0 otherwise.",
+      "seeAlso": [
+        "function_object",
+        "typeof"
+      ]
+    },
+    "ldexp": {
+      "name": "ldexp",
+      "description": "add an integer to the exponent of a float",
+      "returnType": "float",
+      "synopsis": "float ldexp(float x, int n)",
+      "parameters": [
+        {
+          "label": "x",
+          "documentation": "float parameter",
+          "optional": false
+        },
+        {
+          "label": "n",
+          "documentation": "int parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Return the value x * 2 ** n.",
+      "seeAlso": [
+        "frexp",
+        "modf"
+      ]
+    },
+    "log": {
+      "name": "log",
+      "description": "compute natural logarithm",
+      "returnType": "float",
+      "synopsis": "float log(float x)",
+      "parameters": [
+        {
+          "label": "x",
+          "documentation": "float parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Return the natural logarithm of the argument.",
+      "seeAlso": [
+        "exp",
+        "log10",
+        "pow"
+      ]
+    },
+    "log10": {
+      "name": "log10",
+      "description": "base 10 logarithm",
+      "returnType": "float",
+      "synopsis": "float log10(float x)",
+      "parameters": [
+        {
+          "label": "x",
+          "documentation": "float parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Return the logarithm of the argument to base 10.",
+      "seeAlso": [
+        "exp",
+        "log",
+        "pow"
+      ]
+    },
+    "make_dir": {
+      "name": "make_dir",
+      "description": "create a directory",
+      "returnType": "int",
+      "synopsis": "int make_dir(string dir)",
+      "parameters": [
+        {
+          "label": "dir",
+          "documentation": "string parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Create a new directory.  1 is returned if the directory could be\n\tcreated, 0 otherwise.",
+      "seeAlso": [
+        "get_dir",
+        "remove_dir"
+      ]
+    },
+    "map_indices": {
+      "name": "map_indices",
+      "description": "get the indices of a mapping",
+      "returnType": "void",
+      "synopsis": "mixed *map_indices(mapping map)",
+      "parameters": [
+        {
+          "label": "map",
+          "documentation": "mapping parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Return an array containing the indices of mapping map.",
+      "seeAlso": [
+        "map_values"
+      ]
+    },
+    "map_sizeof": {
+      "name": "map_sizeof",
+      "description": "get size of a mapping",
+      "returnType": "int",
+      "synopsis": "int map_sizeof(mapping map)",
+      "parameters": [
+        {
+          "label": "map",
+          "documentation": "mapping parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Return the number of index-value pairs in mapping map.",
+      "seeAlso": [
+        "sizeof",
+        "strlen"
+      ]
+    },
+    "map_values": {
+      "name": "map_values",
+      "description": "get the values of a mapping",
+      "returnType": "void",
+      "synopsis": "mixed *map_values(mapping map)",
+      "parameters": [
+        {
+          "label": "map",
+          "documentation": "mapping parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Return an array containing the values of mapping map, sorted in the\n\torder of the corresponding indices.",
+      "seeAlso": [
+        "map_indices"
+      ]
+    },
+    "millitime": {
+      "name": "millitime",
+      "description": "return the current time in milliseconds",
+      "returnType": "void",
+      "synopsis": "mixed *millitime()",
+      "parameters": [],
+      "documentation": "Return the current time as an array ({ time, fraction }), where time\n\tis an integer denoting the current time in seconds, and fraction is\n\ta float in range [0.0 .. 1.0>, denoting the fraction of the current\n\tsecond that has passed, with a resolution of 0.001.",
+      "seeAlso": [
+        "time",
+        "ctime"
+      ]
+    },
+    "modf": {
+      "name": "modf",
+      "description": "compute floating point remainder",
+      "returnType": "void",
+      "synopsis": "float *modf(float x)",
+      "parameters": [
+        {
+          "label": "x",
+          "documentation": "float parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Split the argument into a fraction f and an integer part n, such that\n\t| f | < 1.0, and f + n == x.  ({ f, n }) is returned.  Note that\n\tn is returned as a float, and may not be representable in type int.",
+      "seeAlso": [
+        "frexp",
+        "ldexp"
+      ]
+    },
+    "new_object": {
+      "name": "new_object",
+      "description": "create a new light",
+      "returnType": "object",
+      "synopsis": "object new_object(object master)",
+      "parameters": [
+        {
+          "label": "master",
+          "documentation": "object parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Create a new light-weight instance of the specified object with a name\n\tof the form \"object_name#-1\".  If the master object is itself a light-\n\tweight object, it will be copied.  Light-weight objects cannot be\n\tdestructed and are automatically deallocated once the last reference\n\tto them is removed.\n\tThe new object is returned.  The creator function will be called in the\n\tnew object immediately.",
+      "seeAlso": [
+        "clone_object"
+      ]
+    },
+    "object_name": {
+      "name": "object_name",
+      "description": "return the name of an object",
+      "returnType": "string",
+      "synopsis": "string object_name(object obj)",
+      "parameters": [
+        {
+          "label": "obj",
+          "documentation": "object parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Return the name of object obj.",
+      "seeAlso": [
+        "find_object"
+      ]
+    },
+    "parse_string": {
+      "name": "parse_string",
+      "description": "parse a string",
+      "returnType": "void",
+      "synopsis": "mixed *parse_string(string grammar, string str,\n\t\t\t    varargs int alternatives)",
+      "parameters": [],
+      "documentation": "Parse a string as described by the grammar.  If parsing is successful,\n\tthe parse tree is returned as an array.  The optional third argument\n\tspecifies the number of alternative parse trees to integrate in the\n\tresult, if the grammar is ambiguous.\n\tparse_string() uses internal object storage to cache generated\n\tautomatons between calls, which is not removed until the object is\n\tdestructed.\n\tThis function cannot be used from a special object.",
+      "seeAlso": [
+        "explode",
+        "implode",
+        "sscanf"
+      ]
+    },
+    "pow": {
+      "name": "pow",
+      "description": "compute power",
+      "returnType": "float",
+      "synopsis": "float pow(float x, float y)",
+      "parameters": [
+        {
+          "label": "x",
+          "documentation": "float parameter",
+          "optional": false
+        },
+        {
+          "label": "y",
+          "documentation": "float parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Return x to the power y.",
+      "seeAlso": [
+        "exp",
+        "log",
+        "log10"
+      ]
+    },
+    "previous_object": {
+      "name": "previous_object",
+      "description": "return the previous object",
+      "returnType": "object",
+      "synopsis": "object previous_object(varargs int n)",
+      "parameters": [
+        {
+          "label": "n",
+          "documentation": "varargs int parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Return the object n+1 (default: 1) steps back in the call_other chain.\n\tIf the object is destructed, or the number of steps is larger than\n\tthe number of call_others involved, nil is returned.",
+      "seeAlso": [
+        "call_other",
+        "previous_program",
+        "this_object",
+        "call_trace"
+      ]
+    },
+    "previous_program": {
+      "name": "previous_program",
+      "description": "return the previous program",
+      "returnType": "string",
+      "synopsis": "string previous_program(varargs int n)",
+      "parameters": [
+        {
+          "label": "n",
+          "documentation": "varargs int parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Return the name of the object with the function n+1 (default: 1) steps\n\tback in the function call chain.  If the number of steps is larger than\n\tthe number of function calls involved, nil is returned.",
+      "seeAlso": [
+        "previous_object",
+        "call_trace"
+      ]
+    },
+    "query_editor": {
+      "name": "query_editor",
+      "description": "query editor status",
+      "returnType": "string",
+      "synopsis": "string query_editor(object obj)",
+      "parameters": [
+        {
+          "label": "obj",
+          "documentation": "object parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Return the editor status of an object.  This is either \"command\", if\n\tthe editor instance is in command mode, \"insert\", if the editor instance\n\tis in input mode, or nil, if there is no editor instance for the given\n\tobject.",
+      "seeAlso": [
+        "editor"
+      ]
+    },
+    "query_ip_name": {
+      "name": "query_ip_name",
+      "description": "get the ip name of a user",
+      "returnType": "string",
+      "synopsis": "string query_ip_name(object user)",
+      "parameters": [
+        {
+          "label": "user",
+          "documentation": "object parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Return the IP name of a user, as a string, or nil if the given object\n\tis not a user object.  If the IP name could not be resolved, the\n\tIP number is returned, instead.",
+      "seeAlso": [
+        "connect",
+        "connect_datagram",
+        "datagram_challenge",
+        "query_ip_number",
+        "send_close",
+        "send_datagram",
+        "send_message",
+        "this_user",
+        "users"
+      ]
+    },
+    "query_ip_number": {
+      "name": "query_ip_number",
+      "description": "get the ip number of a user",
+      "returnType": "string",
+      "synopsis": "string query_ip_number(object user)",
+      "parameters": [
+        {
+          "label": "user",
+          "documentation": "object parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Return the ip number of a user, as a string, or nil if the given object\n\tis not a user object.",
+      "seeAlso": [
+        "connect",
+        "connect_datagram",
+        "datagram_challenge",
+        "query_ip_name",
+        "send_close",
+        "send_datagram",
+        "send_message",
+        "this_user",
+        "users"
+      ]
+    },
+    "random": {
+      "name": "random",
+      "description": "return random number",
+      "returnType": "int",
+      "synopsis": "int random(int mod)",
+      "parameters": [
+        {
+          "label": "mod",
+          "documentation": "int parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Return a positive random number in the range 0 .. mod-1.  If mod is\n\tzero, the result is a full-integer random number.",
+      "seeAlso": []
+    },
+    "read_file": {
+      "name": "read_file",
+      "description": "read a file",
+      "returnType": "string",
+      "synopsis": "string read_file(string file, varargs int offset, int size)",
+      "parameters": [
+        {
+          "label": "file",
+          "documentation": "string parameter",
+          "optional": false
+        },
+        {
+          "label": "offset",
+          "documentation": "varargs int parameter",
+          "optional": false
+        },
+        {
+          "label": "size",
+          "documentation": "int parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Read a file.  The optional second and third arguments specify an\n\toffset in the file and the maximum length of the string to be read,\n\tand default to the whole file from the beginning.  The offset may\n\tbe specified as negative, to read from the end of a file.  Nil is\n\treturned if the file does not exist.",
+      "seeAlso": [
+        "editor",
+        "write_file"
+      ]
+    },
+    "remove_call_out": {
+      "name": "remove_call_out",
+      "description": "remove a delayed call to a function",
+      "returnType": "mixed",
+      "synopsis": "mixed remove_call_out(int handle)",
+      "parameters": [
+        {
+          "label": "handle",
+          "documentation": "int parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Remove the callout associated with handle.  The delay after which the\n\tfunction would have been called is returned.  The delay is an integer\n\tor a floating point number, depending on how the callout was started.\n\tIf there is no scheduled call associated with the handle in the current\n\tobject, return -1.",
+      "seeAlso": [
+        "call_out"
+      ]
+    },
+    "remove_dir": {
+      "name": "remove_dir",
+      "description": "remove a directory",
+      "returnType": "int",
+      "synopsis": "int remove_dir(string dir)",
+      "parameters": [
+        {
+          "label": "dir",
+          "documentation": "string parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Remove a directory, which must be empty.  1 is returned if the\n\tdirectory could be removed, 0 otherwise.",
+      "seeAlso": [
+        "get_dir",
+        "make_dir"
+      ]
+    },
+    "remove_file": {
+      "name": "remove_file",
+      "description": "remove a file",
+      "returnType": "int",
+      "synopsis": "int remove_file(string file)",
+      "parameters": [
+        {
+          "label": "file",
+          "documentation": "string parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Remove a file.  1 is returned if the file could be removed, 0\n\totherwise.",
+      "seeAlso": [
+        "rename_file"
+      ]
+    },
+    "rename_file": {
+      "name": "rename_file",
+      "description": "rename a file",
+      "returnType": "int",
+      "synopsis": "int rename_file(string from, string to)",
+      "parameters": [
+        {
+          "label": "from",
+          "documentation": "string parameter",
+          "optional": false
+        },
+        {
+          "label": "to",
+          "documentation": "string parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Rename a file.  The destination file must not yet exist.  1 is\n\treturned if the file could be renamed, 0 otherwise.",
+      "seeAlso": [
+        "remove_file"
+      ]
+    },
+    "restore_object": {
+      "name": "restore_object",
+      "description": "restore variables of an object",
+      "returnType": "int",
+      "synopsis": "int restore_object(string file)",
+      "parameters": [
+        {
+          "label": "file",
+          "documentation": "string parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Restore all global variables in an object that are not private or\n\tstatic from a file.  All variables which qualify, but were not\n\trestored and do not contain object values, will be set to 0 or nil.\n\t1 is returned if the variables could be restored, 0 otherwise.",
+      "seeAlso": [
+        "save_object"
+      ]
+    },
+    "save_object": {
+      "name": "save_object",
+      "description": "save variables of an object",
+      "returnType": "void",
+      "synopsis": "void save_object(string file)",
+      "parameters": [
+        {
+          "label": "file",
+          "documentation": "string parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Save all global variables in an object that are not private or static\n\tto a file.  Only non-zero and non-object values are actually saved.",
+      "seeAlso": [
+        "restore_object"
+      ]
+    },
+    "send_close": {
+      "name": "send_close",
+      "description": "close a connection for output",
+      "returnType": "void",
+      "synopsis": "void send_close()",
+      "parameters": [],
+      "documentation": "Close a connection for output, allowing the user to discover that\n\tno more data will be sent.",
+      "seeAlso": [
+        "connect",
+        "connect_datagram",
+        "datagram_challenge",
+        "query_ip_name",
+        "query_ip_number",
+        "send_datagram",
+        "send_message",
+        "this_user",
+        "users"
+      ]
+    },
+    "send_datagram": {
+      "name": "send_datagram",
+      "description": "send a message on the datagram channel",
+      "returnType": "int",
+      "synopsis": "int send_datagram(string message)",
+      "parameters": [
+        {
+          "label": "message",
+          "documentation": "string parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Send a message on the datagram channel of a binary user object.  At\n\tleast one message must have been received on the same channel before\n\tthis function can be used.  The return value is the length of the\n\tmessage if it could be sent, or 0 otherwise.\n\tNo more than one datagram can be sent per user object during each task.",
+      "seeAlso": [
+        "connect_datagram",
+        "datagram_challenge",
+        "query_ip_name",
+        "query_ip_number",
+        "send_message",
+        "this_user",
+        "users"
+      ]
+    },
+    "send_message": {
+      "name": "send_message",
+      "description": "send a message to a user",
+      "returnType": "int",
+      "synopsis": "int send_message(string message)\n\tint send_message(int echo)",
+      "parameters": [
+        {
+          "label": "message",
+          "documentation": "string parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "In the first form, send a message to the user associated with the\n\tcurrent object, returning the number of bytes that could be sent.\n\tWhen used by the driver object, the string will be written to stderr.\n\tIn the second form, user input echoing will be turned off or on,\n\tdepending on the value of the argument being zero or non-zero,\n\trespectively; the return value is 1 if input echoing could be set, or 0\n\totherwise.\n\tWhen the output buffer has emptied, message_done() will be called in\n\tthe user object.  If send_message() is called again before the output\n\tbuffer has fully drained, message_done() will not be called before the\n\toutput buffer has emptied completely.",
+      "seeAlso": [
+        "connect",
+        "connect_datagram",
+        "datagram_challenge",
+        "query_ip_name",
+        "query_ip_number",
+        "send_close",
+        "send_datagram",
+        "this_user",
+        "users"
+      ]
+    },
+    "shutdown": {
+      "name": "shutdown",
+      "description": "shutdown the system",
+      "returnType": "void",
+      "synopsis": "void shutdown(varargs int hotboot)",
+      "parameters": [
+        {
+          "label": "hotboot",
+          "documentation": "varargs int parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Shut down the system after the current task has finished.  A non-zero\n\targument indicates that the system should attempt to hot-boot after\n\tshutdown.",
+      "seeAlso": []
+    },
+    "sin": {
+      "name": "sin",
+      "description": "comput sine",
+      "returnType": "float",
+      "synopsis": "float sin(float x)",
+      "parameters": [
+        {
+          "label": "x",
+          "documentation": "float parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Return the sine of the argument.",
+      "seeAlso": [
+        "cos",
+        "tan"
+      ]
+    },
+    "sinh": {
+      "name": "sinh",
+      "description": "compute hyperbolic sine",
+      "returnType": "float",
+      "synopsis": "float sinh(float x)",
+      "parameters": [
+        {
+          "label": "x",
+          "documentation": "float parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Return the hyperbolic sine of the argument.",
+      "seeAlso": [
+        "cosh",
+        "tanh"
+      ]
+    },
+    "sizeof": {
+      "name": "sizeof",
+      "description": "get size of an array",
+      "returnType": "int",
+      "synopsis": "int sizeof(mixed *arr)",
+      "parameters": [
+        {
+          "label": "*arr",
+          "documentation": "mixed parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Return the number of elements in array arr.",
+      "seeAlso": [
+        "map_sizeof",
+        "strlen"
+      ]
+    },
+    "sqrt": {
+      "name": "sqrt",
+      "description": "compute square root",
+      "returnType": "float",
+      "synopsis": "float sqrt(float x)",
+      "parameters": [
+        {
+          "label": "x",
+          "documentation": "float parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Return the square root of the argument.",
+      "seeAlso": []
+    },
+    "sscanf": {
+      "name": "sscanf",
+      "description": "simple string parser",
+      "returnType": "int",
+      "synopsis": "int sscanf(string str, string fmt, ...)",
+      "parameters": [
+        {
+          "label": "str",
+          "documentation": "string parameter",
+          "optional": false
+        },
+        {
+          "label": "fmt",
+          "documentation": "string parameter",
+          "optional": false
+        },
+        {
+          "label": "",
+          "documentation": " parameter",
+          "optional": true
+        }
+      ],
+      "documentation": "Parse the string str, using the format string fmt.  The following\n\tcharacter sequences have a special meaning in the format string:\n\n\t    %s\tmatch a substring\n\t    %d\tmatch a number\n\t    %f\tmatch a floating-point number\n\t    %c\tmatch a character\n\t    %%\tmatch single %\n\n\tOther characters preceding a special sequence must be matched exactly.\n\t%*s, %*d, %*f and %*c can be used to match without assignment.  Matched\n\tsubstrings and numbers are assigned to the successive lvalue arguments\n\tfollowing the format string.  The number of matches is returned.",
+      "seeAlso": [
+        "explode",
+        "implode",
+        "parse_string"
+      ]
+    },
+    "status": {
+      "name": "status",
+      "description": "get information about resource usage",
+      "returnType": "void",
+      "synopsis": "mixed *status(varargs object obj)",
+      "parameters": [
+        {
+          "label": "obj",
+          "documentation": "varargs object parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Called without an argument, this kfun returns information about\n\tresources used by the system.  With an object as argument, resource\n\tusage by that object is given.  The returned value is an array, the\n\tfields of which are described in the include file <status.h>.",
+      "seeAlso": []
+    },
+    "strlen": {
+      "name": "strlen",
+      "description": "get length of a string",
+      "returnType": "int",
+      "synopsis": "int strlen(string str)",
+      "parameters": [
+        {
+          "label": "str",
+          "documentation": "string parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Return the length of string str.",
+      "seeAlso": [
+        "map_sizeof",
+        "sizeof"
+      ]
+    },
+    "swapout": {
+      "name": "swapout",
+      "description": "swap out all objects",
+      "returnType": "void",
+      "synopsis": "void swapout()",
+      "parameters": [],
+      "documentation": "Swap out all objects.  This function can be called periodically to\n\tclean up memory.",
+      "seeAlso": [
+        "dump_state"
+      ]
+    },
+    "tan": {
+      "name": "tan",
+      "description": "compute tangent",
+      "returnType": "float",
+      "synopsis": "float tan(float x)",
+      "parameters": [
+        {
+          "label": "x",
+          "documentation": "float parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Return the tangent of the argument.",
+      "seeAlso": [
+        "cos",
+        "sin"
+      ]
+    },
+    "tanh": {
+      "name": "tanh",
+      "description": "compute hyperbolic tangent",
+      "returnType": "float",
+      "synopsis": "float tanh(float x)",
+      "parameters": [
+        {
+          "label": "x",
+          "documentation": "float parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Return the hyperbolic tangent of the argument.",
+      "seeAlso": [
+        "cosh",
+        "sinh"
+      ]
+    },
+    "this_object": {
+      "name": "this_object",
+      "description": "return current object",
+      "returnType": "object",
+      "synopsis": "object this_object()",
+      "parameters": [],
+      "documentation": "Return the current object, or nil if the current object is destructed.",
+      "seeAlso": [
+        "previous_object"
+      ]
+    },
+    "this_user": {
+      "name": "this_user",
+      "description": "return the current user",
+      "returnType": "object",
+      "synopsis": "object this_user()",
+      "parameters": [],
+      "documentation": "Return the user for which the current task started.  If the current\n\ttask started from a delayed function call, nil is returned.",
+      "seeAlso": [
+        "connect",
+        "connect_datagram",
+        "datagram_challenge",
+        "query_ip_name",
+        "query_ip_number",
+        "send_close",
+        "send_datagram",
+        "send_message",
+        "users"
+      ]
+    },
+    "time": {
+      "name": "time",
+      "description": "return the current time",
+      "returnType": "int",
+      "synopsis": "int time()",
+      "parameters": [],
+      "documentation": "Return the current time as an integer.  The time can be converted\n\tinto a string with the kfun ctime().",
+      "seeAlso": [
+        "ctime",
+        "millitime"
+      ]
+    },
+    "typeof": {
+      "name": "typeof",
+      "description": "return the type of a value",
+      "returnType": "int",
+      "synopsis": "int typeof(mixed value)",
+      "parameters": [
+        {
+          "label": "value",
+          "documentation": "mixed parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Return the type of a value.  The return values are declared in\n\tthe include file <type.h>.",
+      "seeAlso": [
+        "instanceof"
+      ]
+    },
+    "users": {
+      "name": "users",
+      "description": "return array with users",
+      "returnType": "void",
+      "synopsis": "object *users()",
+      "parameters": [],
+      "documentation": "Return an array containing the objects associated with the current\n\tusers.",
+      "seeAlso": [
+        "connect",
+        "connect_datagram",
+        "datagram_challenge",
+        "query_ip_name",
+        "query_ip_number",
+        "send_close",
+        "send_datagram",
+        "send_message",
+        "this_user"
+      ]
+    },
+    "write_file": {
+      "name": "write_file",
+      "description": "write to a file",
+      "returnType": "int",
+      "synopsis": "int write_file(string file, string str, varargs int offset)",
+      "parameters": [
+        {
+          "label": "file",
+          "documentation": "string parameter",
+          "optional": false
+        },
+        {
+          "label": "str",
+          "documentation": "string parameter",
+          "optional": false
+        },
+        {
+          "label": "offset",
+          "documentation": "varargs int parameter",
+          "optional": false
+        }
+      ],
+      "documentation": "Write a string to a file.  If the optional third argument is\n\tspecified and non-zero, write the string at the given offset in\n\tthe file; otherwise, append to the file.  The offset may be\n\tnegative to offset backwards from the end of the file.\n\tTo write a string to the beginning of a file, let the offset be\n\tequal to minus the length of the file.\n\tThe return value is 1 for success, 0 for failure.",
+      "seeAlso": [
+        "editor",
+        "read_file"
+      ]
+    }
+  }
+}

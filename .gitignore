@@ -1,0 +1,15 @@
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+.idea/
+.vscode/
+.DS_Store
+dependency-reduced-pom.xml
+
+node_modules
+.vscode-test/
+*.vsix
+.env
+npm-debug.log

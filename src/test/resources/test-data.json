@@ -1,0 +1,9 @@
+{
+  "id": 1,
+  "name": "Test Item",
+  "description": "This is a test item",
+  "tags": [
+    "test",
+    "example"
+  ]
+}

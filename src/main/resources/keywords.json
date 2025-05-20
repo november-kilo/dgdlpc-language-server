@@ -1,0 +1,8 @@
+{
+  "keywords": {
+    "atomic": {
+      "name": "atomic",
+      "description": "Atomic functions are atomic."
+    }
+  }
+}

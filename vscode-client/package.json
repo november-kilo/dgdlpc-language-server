@@ -1,0 +1,54 @@
+{
+  "name": "dgdlpc-language-client",
+  "displayName": "dgdlpc-language-client",
+  "description": "DGD LPC language support",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.100.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "workspaceContains:**/*.c"
+  ],
+  "main": "extension.js",
+  "contributes": {
+    "grammars": [
+      {
+        "language": "lpc",
+        "scopeName": "source.lpc",
+        "path": "./syntaxes/lpc.tmLanguage.json"
+      }
+    ],
+    "languages": [
+      {
+        "id": "lpc",
+        "aliases": [
+          "LPC",
+          "lpc"
+        ],
+        "extensions": [
+          ".c",
+          ".h"
+        ]
+      }
+    ]
+  },
+  "scripts": {
+    "lint": "../../../WebstormProjects/dgdlpc-language-client/dgdlpc-language-client/node_modules/.bin/eslint .",
+    "pretest": "npm run lint",
+    "test": "../../../WebstormProjects/dgdlpc-language-client/dgdlpc-language-client/node_modules/.bin/vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "20.x",
+    "@types/vscode": "^1.100.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.5.2",
+    "eslint": "^9.25.1"
+  },
+  "dependencies": {
+    "vscode-languageclient": "^9.0.1"
+  }
+}
