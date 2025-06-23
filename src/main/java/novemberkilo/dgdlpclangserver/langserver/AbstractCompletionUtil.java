@@ -17,7 +17,7 @@ public abstract class AbstractCompletionUtil<T> {
     private final LPCParseTreeVisitor<T> visitor;
 
     public AbstractCompletionUtil(LPCParserService parserService,
-                                     LPCParseTreeVisitor<T> visitor) {
+                                  LPCParseTreeVisitor<T> visitor) {
         this.parserService = parserService;
         this.visitor = visitor;
     }

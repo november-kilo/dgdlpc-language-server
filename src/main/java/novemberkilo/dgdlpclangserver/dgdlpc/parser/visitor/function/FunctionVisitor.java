@@ -1,6 +1,5 @@
 package novemberkilo.dgdlpclangserver.dgdlpc.parser.visitor.function;
 
-import lombok.Getter;
 import novemberkilo.dgdlpclangserver.LPCBaseVisitor;
 import novemberkilo.dgdlpclangserver.LPCParser;
 import novemberkilo.dgdlpclangserver.dgdlpc.definition.function.FunctionDefinition;

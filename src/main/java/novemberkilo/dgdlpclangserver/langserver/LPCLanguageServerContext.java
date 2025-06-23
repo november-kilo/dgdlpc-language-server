@@ -70,13 +70,6 @@ public class LPCLanguageServerContext implements LPCLanguageServerContextInterfa
     @Getter
     private final Map<String, LPCKeyword> keywords;
 
-    public static LPCLanguageServerContext getInstance() {
-        if (instance == null) {
-            instance = new LPCLanguageServerContext();
-        }
-        return instance;
-    }
-
     private LPCLanguageServerContext() {
         this.kfuns = loadKfuns(new KfunsDocLoader());
         this.keywords = loadKeywords(new JsonDocLoader<>(LPCKeywords.class, "keywords.json"));
@@ -95,6 +88,13 @@ public class LPCLanguageServerContext implements LPCLanguageServerContextInterfa
         this.keywordCompletionUtil = createKeywordCompletionUtil();
         this.inheritLabelCompletionUtil = createInheritLabelCompletionUtil();
         this.functionCompletionUtil = createFunctionCompletionUtil();
+    }
+
+    public static LPCLanguageServerContext getInstance() {
+        if (instance == null) {
+            instance = new LPCLanguageServerContext();
+        }
+        return instance;
     }
 
     private @NotNull @Unmodifiable Map<String, Kfun> loadKfuns(@NotNull KfunsDocLoader kfunsDocLoader) {

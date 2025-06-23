@@ -55,7 +55,7 @@ public class LPCLanguageServerLauncher {
                 )
         );
 
-        workspaceService = new LPCWorkspaceService();
+        workspaceService = new LPCWorkspaceService(new DefaultLPCFileVisitor());
 
         return new LPCLanguageServer(textDocumentService, workspaceService);
     }

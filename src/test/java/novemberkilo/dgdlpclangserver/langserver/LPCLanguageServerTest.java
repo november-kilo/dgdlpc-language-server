@@ -55,6 +55,8 @@ public class LPCLanguageServerTest {
         assertThat(capabilities.getHoverProvider()).isNotNull();
         assertThat(capabilities.getDiagnosticProvider()).isNull();
         assertThat(capabilities.getCodeActionProvider()).isNotNull();
+        assertThat(capabilities.getWorkspace()).isNotNull();
+        assertThat(capabilities.getWorkspaceSymbolProvider().getLeft()).isTrue();
     }
 
     @Test
