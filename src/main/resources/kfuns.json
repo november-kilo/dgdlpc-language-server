@@ -558,6 +558,34 @@
         "remove_call_out"
       ]
     },
+    "call_out_summand": {
+      "name": "call_out_summand",
+      "description": "call function with delay, once",
+      "returnType": "int",
+      "synopsis": "int call_out_summand(string function, mixed delay, float summand,\n\t\t\t     mixed args...)",
+      "parameters": [
+        {
+          "label":  "function",
+          "documentation": "string parameter",
+          "optional": false
+        },
+        {
+          "label": "delay",
+          "documentation": "mixed parameter",
+          "optional": false
+        },
+        {
+          "label": "summand",
+          "documentation": "float parameter",
+          "optional": false
+        },
+        {
+          "label": "args",
+          "documentation": "mixed parameter",
+          "optional": false
+        }
+      ]
+    },
     "call_touch": {
       "name": "call_touch",
       "description": "prepare to report when the object is next touched",

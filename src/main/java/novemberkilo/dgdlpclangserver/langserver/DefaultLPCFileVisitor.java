@@ -46,7 +46,7 @@ public class DefaultLPCFileVisitor implements LPCFileVisitor {
         lpcFiles.removeIf(uri -> uri.getPath().startsWith(fileUri.getPath()));
     }
 
-    private boolean isLPCFile(Path file) {
+    private boolean isLPCFile(@NotNull Path file) {
         String name = file.toString();
         return name.endsWith(".c") || name.endsWith(".h");
     }

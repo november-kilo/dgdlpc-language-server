@@ -4,22 +4,21 @@ import novemberkilo.dgdlpclangserver.dgdlpc.definition.inherit.InheritDefinition
 import novemberkilo.dgdlpclangserver.dgdlpc.parser.visitor.variable.VariableVisitorTest;
 import org.eclipse.lsp4j.Diagnostic;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestTemplate;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class InheritVisitorTest {
-    @Test
-    void shouldCorrectlyProcessInheritStatements() {
-        var inheritData = List.of(
-                new InheritTestCase("/path/to/file.c", false, null),
-                new InheritTestCase("/path/to/file2.c", true, null),
-                new InheritTestCase("/path/to/file3.c", false, "lib"),
-                new InheritTestCase("/path/to/file4.c", true, "lib")
-        );
-
+    @ParameterizedTest
+    @MethodSource("provideInheritTestCases")
+    void shouldCorrectlyProcessInheritStatements(List<InheritTestCase> inheritData, boolean hasLabels) {
         String testCode = buildTestCode(inheritData);
         InheritVisitor visitor = new InheritVisitor();
 
@@ -34,8 +33,31 @@ public class InheritVisitorTest {
 
             assertThat(actual.file()).isEqualTo(expected.file);
             assertThat(actual.isPrivate()).isEqualTo(expected.isPrivate());
-            assertThat(actual.label()).isEqualTo(expected.label);
+            if (hasLabels) {
+                assertThat(actual.label()).isEqualTo(expected.label);
+            } else {
+                assertThat(actual.label()).isEmpty();
+            }
         }
+    }
+
+    private static Stream<Arguments> provideInheritTestCases() {
+        return Stream.of(
+                Arguments.of(
+                        List.of(
+                                new InheritTestCase("/path/to/file3.c", false, "lib"),
+                                new InheritTestCase("/path/to/file4.c", true, "lib")
+                        ),
+                        true  // has labels
+                ),
+                Arguments.of(
+                        List.of(
+                                new InheritTestCase("/path/to/file.c", false, null),
+                                new InheritTestCase("/path/to/file2.c", true, null)
+                        ),
+                        false  // has no labels
+                )
+        );
     }
 
     @Test

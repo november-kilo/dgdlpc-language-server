@@ -51,7 +51,7 @@ public class LPCCompletionService {
         items.addAll(inheritLabelCompletionUtil.completionsFor(textDocumentService, params, prefix));
         items.addAll(functionCompletionUtil.completionsFor(textDocumentService, params, prefix));
 
-        return Either.forLeft(items);
+        return Either.forLeft(items.stream().distinct().toList());
     }
 
     private String getPrefix(@NotNull LPCTextDocumentService textDocumentService, @NotNull CompletionParams params) {

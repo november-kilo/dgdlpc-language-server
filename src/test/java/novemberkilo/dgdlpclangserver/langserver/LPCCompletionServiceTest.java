@@ -22,6 +22,7 @@ import java.util.concurrent.ExecutionException;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -84,27 +85,6 @@ public class LPCCompletionServiceTest {
     }
 
     @Test
-    public void completion_WithEmptyPrefix_ShouldStillReturnCompletions() throws ExecutionException, InterruptedException {
-        CompletionParams params = new CompletionParams();
-        TextDocumentIdentifier textDocument = new TextDocumentIdentifier("file:///test.lpc");
-        params.setTextDocument(textDocument);
-        params.setPosition(new Position(0, 0));
-
-        when(textDocumentService.getDocumentContentIfPresent(anyString()))
-                .thenReturn(Optional.empty());
-        when(keywordCompletionUtil.completionsFor(""))
-                .thenReturn(List.of(new CompletionItem("if")));
-        when(kfunCompletionUtil.completionsFor(""))
-                .thenReturn(List.of(new CompletionItem("write")));
-
-        Either<List<CompletionItem>, CompletionList> result =
-                completionService.completion(textDocumentService, params).get();
-
-        assertThat(result.isLeft()).isTrue();
-        assertThat(result.getLeft()).hasSize(2);
-    }
-
-    @Test
     public void completion_ShouldCallBothCompletionUtils() throws ExecutionException, InterruptedException {
         CompletionParams params = new CompletionParams();
         TextDocumentIdentifier textDocument = new TextDocumentIdentifier("file:///test.lpc");
@@ -122,5 +102,37 @@ public class LPCCompletionServiceTest {
 
         verify(keywordCompletionUtil, times(1)).completionsFor(anyString());
         verify(kfunCompletionUtil, times(1)).completionsFor(anyString());
+    }
+
+    @Test
+    public void completion_ShouldAggregateResultsFromAllUtilities() throws ExecutionException, InterruptedException {
+        CompletionParams params = new CompletionParams();
+        TextDocumentIdentifier textDocument = new TextDocumentIdentifier("file:///test.lpc");
+        params.setTextDocument(textDocument);
+        params.setPosition(new Position(0, 0));
+
+        CompletionItem keywordItem = new CompletionItem("if");
+        CompletionItem kfunItem = new CompletionItem("write");
+        CompletionItem inheritLabelItem = new CompletionItem("inherit_label");
+        CompletionItem functionItem = new CompletionItem("function");
+
+        when(textDocumentService.getDocumentContentIfPresent(anyString()))
+                .thenReturn(Optional.of("test content"));
+        when(keywordCompletionUtil.completionsFor(anyString()))
+                .thenReturn(List.of(keywordItem));
+        when(kfunCompletionUtil.completionsFor(anyString()))
+                .thenReturn(List.of(kfunItem));
+        when(inheritLabelCompletionUtil.completionsFor(eq(textDocumentService), eq(params), anyString()))
+                .thenReturn(List.of(inheritLabelItem));
+        when(functionCompletionUtil.completionsFor(eq(textDocumentService), eq(params), anyString()))
+                .thenReturn(List.of(functionItem));
+
+        Either<List<CompletionItem>, CompletionList> result =
+                completionService.completion(textDocumentService, params).get();
+
+        assertThat(result.isLeft()).isTrue();
+        List<CompletionItem> completionItems = result.getLeft();
+        assertThat(completionItems).hasSize(4);
+        assertThat(completionItems).containsExactlyInAnyOrder(keywordItem, kfunItem, inheritLabelItem, functionItem);
     }
 }

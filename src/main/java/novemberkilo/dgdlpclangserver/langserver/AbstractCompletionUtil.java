@@ -26,11 +26,8 @@ public abstract class AbstractCompletionUtil<T> {
                                                CompletionParams completionParams,
                                                String prefix) {
         List<T> definitions = getAllDefinitions(textDocumentService, completionParams);
-
         Stream<T> stream = definitions.stream();
-
-        Predicate<T> finalPredicate = entry ->
-                prefix.isEmpty() || matchesPrefix(entry, prefix);
+        Predicate<T> finalPredicate = entry -> prefix.isEmpty() || matchesPrefix(entry, prefix);
 
         Optional<Predicate<T>> additionalFilter = getAdditionalFilter();
         if (additionalFilter.isPresent()) {
@@ -56,7 +53,7 @@ public abstract class AbstractCompletionUtil<T> {
     private List<T> parseAndVisitDocument(String documentContent) {
         ParseTree parseTree = parserService.parse(documentContent);
         visitor.visit(parseTree);
-        return visitor.getAll();
+        return visitor.getAll().stream().distinct().toList();
     }
 
     public boolean matchesPrefix(T entry, String prefix) {

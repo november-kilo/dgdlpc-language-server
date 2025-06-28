@@ -12,8 +12,11 @@ import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class FunctionVisitor extends LPCBaseVisitor<Void>
         implements LPCParseTreeVisitor<FunctionDefinition> {

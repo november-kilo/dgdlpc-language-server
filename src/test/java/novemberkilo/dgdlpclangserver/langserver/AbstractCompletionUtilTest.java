@@ -102,13 +102,15 @@ public class AbstractCompletionUtilTest {
     }
 
     @Test
-    public void shouldReturnAllFoundDefinitions() {
-        List<String> expectedDefinitions = Arrays.asList("test1", "test2");
-        setupMocks(expectedDefinitions);
+    public void shouldReturnAllFoundDefinitionsAsUniqueList() {
+        List<String> definitions = Arrays.asList("test1", "test2", "test1");
+        setupMocks(definitions);
 
         List<String> results = util.getAllDefinitions(textDocumentService, completionParams);
 
-        assertThat(results).isEqualTo(expectedDefinitions);
+        assertThat(results)
+                .hasSize(2)
+                .containsExactlyInAnyOrder(definitions.get(0), definitions.get(1));
     }
 
     private void setupMocks(List<String> definitions) {

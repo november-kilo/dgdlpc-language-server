@@ -17,6 +17,8 @@ import java.util.Optional;
 import java.util.function.Predicate;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.ArgumentMatchers.eq;
 
 @ExtendWith(MockitoExtension.class)
 class InheritLabelCompletionUtilTest {
@@ -56,6 +58,13 @@ class InheritLabelCompletionUtilTest {
 
         assertThat(completionUtil.matchesPrefix(inheritDefinition, "testL")).isTrue();
         assertThat(completionUtil.matchesPrefix(inheritDefinition, "testP")).isFalse();
+    }
+
+    @Test
+    public void shouldHandleNullLabel() {
+        InheritDefinition inheritDefinition = createInheritDefinition(null);
+
+        assertThat(completionUtil.matchesPrefix(inheritDefinition, "testL")).isFalse();
     }
 
     @Test

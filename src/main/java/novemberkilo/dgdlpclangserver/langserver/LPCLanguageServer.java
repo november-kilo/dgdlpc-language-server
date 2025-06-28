@@ -21,6 +21,8 @@ import org.eclipse.lsp4j.services.LanguageClientAware;
 import org.eclipse.lsp4j.services.LanguageServer;
 import org.eclipse.lsp4j.services.TextDocumentService;
 import org.eclipse.lsp4j.services.WorkspaceService;
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -54,26 +56,26 @@ public class LPCLanguageServer implements LanguageServer, LanguageClientAware {
         return CompletableFuture.completedFuture(new InitializeResult(capabilities));
     }
 
-    private void addWorkspaceCapability(ServerCapabilities capabilities) {
+    private void addWorkspaceCapability(@NotNull ServerCapabilities capabilities) {
         capabilities.setWorkspace(createWorkspaceServerCapabilities());
         capabilities.setWorkspaceSymbolProvider(true);
     }
 
-    private WorkspaceServerCapabilities createWorkspaceServerCapabilities() {
+    private @NotNull WorkspaceServerCapabilities createWorkspaceServerCapabilities() {
         WorkspaceServerCapabilities workspaceCapabilities = new WorkspaceServerCapabilities();
         workspaceCapabilities.setWorkspaceFolders(createWorkspaceFoldersOptions());
         workspaceCapabilities.setFileOperations(createFileOperationsCapabilities());
         return workspaceCapabilities;
     }
 
-    private WorkspaceFoldersOptions createWorkspaceFoldersOptions() {
+    private @NotNull WorkspaceFoldersOptions createWorkspaceFoldersOptions() {
         WorkspaceFoldersOptions workspaceFoldersOptions = new WorkspaceFoldersOptions();
         workspaceFoldersOptions.setSupported(true);
         workspaceFoldersOptions.setChangeNotifications(true);
         return workspaceFoldersOptions;
     }
 
-    private FileOperationsServerCapabilities createFileOperationsCapabilities() {
+    private @NotNull FileOperationsServerCapabilities createFileOperationsCapabilities() {
         FileOperationsServerCapabilities fileOperationsServerCapabilities = new FileOperationsServerCapabilities();
         FileOperationOptions fileOperationOptions = createFileOperationOptions();
 
@@ -84,30 +86,31 @@ public class LPCLanguageServer implements LanguageServer, LanguageClientAware {
         return fileOperationsServerCapabilities;
     }
 
-    private FileOperationOptions createFileOperationOptions() {
+    @Contract(" -> new")
+    private @NotNull FileOperationOptions createFileOperationOptions() {
         FileOperationFilter fileOperationFilter = new FileOperationFilter();
         fileOperationFilter.setPattern(new FileOperationPattern("**/*.[ch]"));
 
         return new FileOperationOptions(Collections.singletonList(fileOperationFilter));
     }
 
-    private void addCodeActionCapability(ServerCapabilities capabilities) {
+    private void addCodeActionCapability(@NotNull ServerCapabilities capabilities) {
         capabilities.setCodeActionProvider(new CodeActionOptions(List.of(
                 CodeActionKind.QuickFix
         )));
     }
 
-    private void addHoverCapability(ServerCapabilities capabilities) {
+    private void addHoverCapability(@NotNull ServerCapabilities capabilities) {
         capabilities.setHoverProvider(true);
     }
 
-    private void addCompletionCapability(ServerCapabilities capabilities) {
+    private void addCompletionCapability(@NotNull ServerCapabilities capabilities) {
         CompletionOptions completionOptions = new CompletionOptions();
         completionOptions.setTriggerCharacters(Arrays.asList(".", "->"));
         capabilities.setCompletionProvider(completionOptions);
     }
 
-    private void addTextDocumentSyncCapability(ServerCapabilities capabilities) {
+    private void addTextDocumentSyncCapability(@NotNull ServerCapabilities capabilities) {
         TextDocumentSyncOptions syncOptions = new TextDocumentSyncOptions();
         syncOptions.setChange(TextDocumentSyncKind.Full);
         syncOptions.setOpenClose(true);

@@ -3,6 +3,7 @@ package novemberkilo.dgdlpclangserver.dgdlpc.parser.visitor.inherit;
 import lombok.Getter;
 import novemberkilo.dgdlpclangserver.LPCBaseVisitor;
 import novemberkilo.dgdlpclangserver.LPCParser;
+import novemberkilo.dgdlpclangserver.dgdlpc.DiagnosticUtil;
 import novemberkilo.dgdlpclangserver.dgdlpc.definition.PositionDetails;
 import novemberkilo.dgdlpclangserver.dgdlpc.definition.inherit.InheritDefinition;
 import novemberkilo.dgdlpclangserver.dgdlpc.parser.PositionDetailsParser;
@@ -10,7 +11,6 @@ import novemberkilo.dgdlpclangserver.dgdlpc.parser.StringExpressionUtil;
 import novemberkilo.dgdlpclangserver.dgdlpc.parser.visitor.HasDiagnostics;
 import novemberkilo.dgdlpclangserver.dgdlpc.parser.visitor.LPCParseTreeVisitor;
 import org.eclipse.lsp4j.Diagnostic;
-import org.eclipse.lsp4j.DiagnosticSeverity;
 import org.eclipse.lsp4j.Position;
 import org.eclipse.lsp4j.Range;
 import org.jetbrains.annotations.Contract;
@@ -84,13 +84,7 @@ public class InheritVisitor extends LPCBaseVisitor<Void>
                 new Position(position.endLine(), position.endColumn() + 1)
         );
 
-        return new Diagnostic(
-                range,
-                "misplaced inherit statement",
-                DiagnosticSeverity.Error,
-                "lpc-parser",
-                "misplaced-inherit-statement"
-        );
+        return DiagnosticUtil.error(range, "misplaced inherit statement");
     }
 
     @Contract("_ -> new")

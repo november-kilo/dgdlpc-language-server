@@ -22,11 +22,15 @@ public class InheritLabelCompletionUtil extends AbstractCompletionUtil<InheritDe
 
     @Override
     public boolean matchesPrefix(@NotNull InheritDefinition entry, String prefix) {
+        if (entry.label().isEmpty()) {
+            return false;
+        }
+
         return entry.label().startsWith(prefix);
     }
 
     @Override
     public Optional<Predicate<InheritDefinition>> getAdditionalFilter() {
-        return Optional.of(inheritDefinition -> inheritDefinition.label() != null);
+        return Optional.of(inheritDefinition -> !inheritDefinition.label().isEmpty());
     }
 }

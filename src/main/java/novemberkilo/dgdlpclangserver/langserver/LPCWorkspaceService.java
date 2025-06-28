@@ -10,6 +10,7 @@ import org.eclipse.lsp4j.WorkspaceSymbol;
 import org.eclipse.lsp4j.WorkspaceSymbolParams;
 import org.eclipse.lsp4j.jsonrpc.messages.Either;
 import org.eclipse.lsp4j.services.WorkspaceService;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 import java.net.URI;
@@ -33,7 +34,7 @@ public class LPCWorkspaceService implements WorkspaceService {
     }
 
     @Override
-    public void didChangeWatchedFiles(DidChangeWatchedFilesParams params) {
+    public void didChangeWatchedFiles(@NotNull DidChangeWatchedFilesParams params) {
         for (FileEvent event : params.getChanges()) {
             URI fileUri = URI.create(event.getUri());
 
@@ -63,7 +64,7 @@ public class LPCWorkspaceService implements WorkspaceService {
     }
 
     @Override
-    public void didChangeWorkspaceFolders(DidChangeWorkspaceFoldersParams params) {
+    public void didChangeWorkspaceFolders(@NotNull DidChangeWorkspaceFoldersParams params) {
         params.getEvent().getAdded().forEach(folder -> {
             try {
                 addWorkspaceFolder(URI.create(folder.getUri()));

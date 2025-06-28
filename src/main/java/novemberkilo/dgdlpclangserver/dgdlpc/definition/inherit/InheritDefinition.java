@@ -9,4 +9,7 @@ public record InheritDefinition(
         String file,
         PositionDetails position
 ) implements LPCDefinition {
+    public InheritDefinition {
+        label = label == null ? "" : label;
+    }
 }
